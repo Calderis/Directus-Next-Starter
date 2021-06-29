@@ -26,8 +26,9 @@ class Contact extends Component {
   setUser = ({ data }) => this.setState({ user: data });
 
   sendMessage = e => {
+    e.preventDefault();
+    e.stopPropagation();
     const { first_name, last_name, email, message } = e.target;
-    console.log("first_name, last_name, email, message", first_name, last_name, email, message);
 
     axios.post("/api/contact", {
       firstName: first_name.value,
@@ -40,7 +41,7 @@ class Contact extends Component {
   };
 
   render() {
-    const { user, email } = this.state;
+    const { user, status } = this.state;
     const { app } = this.props;
     const { themeColor } = app;
 
@@ -53,7 +54,7 @@ class Contact extends Component {
               <div className="shadow sm:rounded-md sm:overflow-hidden">
                 <div className="px-4 py-5 bg-white space-y-6 sm:p-6">
                   <div>
-                    <h3 className="font-semibold text-xl">Contact us {email}</h3>
+                    <h3 className="font-semibold text-xl">Contact us</h3>
                     <p className="text-sm text-gray-500">We do respect privacy. We do use your personnal data in the only goal of providing you the best service. We will never share any data with any other party.</p>
                   </div>
                   <div className="grid grid-cols-6 gap-6">
@@ -122,6 +123,7 @@ class Contact extends Component {
                   </div>
                 </div>
                 <div className="px-4 py-3 bg-gray-50 text-right sm:px-6">
+                  {status}
                   <button
                     type="submit"
                     className={`inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-${themeColor}-600 hover:bg-${themeColor}-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-${themeColor}-500`}

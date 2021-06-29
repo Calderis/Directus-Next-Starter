@@ -14,7 +14,13 @@ const transporter = nodemailer.createTransport({
 });
 
 module.exports = {
-  contact: ({ firstName, lastName, adminEmail, email, content }) => {
-    //
-  }
+  send: ({ from, to, subject, text }) =>
+    new Promise((resolve, reject) => {
+      transporter.sendMail({ from, to, subject, text }, function(err, data) {
+        if (err) {
+          console.error(err);
+          reject(Error("Error while sending email."));
+        } else resolve(true);
+      });
+    })
 }
