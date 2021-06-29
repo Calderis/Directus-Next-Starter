@@ -16,7 +16,7 @@ function classNames(...classes) {
 // The approach used in this component shows how to built a sign in and sign out
 // component that works on pages which support both client and server side
 // rendering, and avoids any flash incorrect content on initial page load.
-export default function Header ({ logo }) {
+export default function Header ({ logo, themeColor }) {
   const [ session, loading ] = useSession();
   const router = useRouter();
 
@@ -39,7 +39,7 @@ export default function Header ({ logo }) {
                 </Link>
               </div>
               <div className="-mr-2 -my-2 md:hidden">
-                <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                <Popover.Button className={`bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-${themeColor}-500`}>
                   <span className="sr-only">Open menu</span>
                   <MenuIcon className="h-6 w-6" aria-hidden="true" />
                 </Popover.Button>
@@ -54,7 +54,7 @@ export default function Header ({ logo }) {
                             <Popover.Button
                               className={classNames(
                                 open ? 'text-gray-900' : 'text-gray-500',
-                                'group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
+                                `group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-${themeColor}-500`
                               )}
                             >
                               <span className="ml-2">{item.text}</span>
@@ -88,7 +88,7 @@ export default function Header ({ logo }) {
                                         <a
                                           className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50"
                                         >
-                                          <subItem.icon className="flex-shrink-0 h-6 w-6 text-indigo-600" aria-hidden="true" />
+                                          <subItem.icon className={`flex-shrink-0 h-6 w-6 text-${themeColor}-600`} aria-hidden="true" />
                                           <div className="ml-4">
                                             <p className="text-base font-medium text-gray-900">{subItem.title}</p>
                                             <p className="mt-1 text-sm text-gray-500">{subItem.description}</p>
@@ -134,7 +134,7 @@ export default function Header ({ logo }) {
                     {({ open }) => (
                       <>
                         <div>
-                          <Menu.Button className="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500">
+                          <Menu.Button className={`inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-${themeColor}-500`}>
                             <div className="flex-shrink-0 h-5 w-5 mr-2">
                               <img className="h-5 w-5 rounded-full" src={session.user.image} alt="" />
                             </div>
@@ -233,12 +233,12 @@ export default function Header ({ logo }) {
                     <div>
                       <img
                         className="h-8 w-auto"
-                        src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
+                        src={`https://tailwindui.com/img/logos/workflow-mark-${themeColor}-600.svg`}
                         alt="Workflow"
                       />
                     </div>
                     <div className="-mr-2">
-                      <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                      <Popover.Button className={`bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-${themeColor}-500`}>
                         <span className="sr-only">Close menu</span>
                         <XIcon className="h-6 w-6" aria-hidden="true" />
                       </Popover.Button>
@@ -265,14 +265,14 @@ export default function Header ({ logo }) {
                         Existing customer?{' '}
 
                         <Link href="/user/settings">
-                          <a className="text-indigo-600 hover:text-indigo-500 mx-2">
+                          <a className={`text-${themeColor}-600 hover:text-${themeColor}-500 mx-2`}>
                             Settings
                           </a>
                         </Link>
 
                         <Link href="/api/auth/signin">
                           <a
-                            className="text-indigo-600 hover:text-indigo-500"
+                            className={`text-${themeColor}-600 hover:text-${themeColor}-500`}
                             onClick={(e) => {
                               e.preventDefault()
                               signOut()
@@ -288,7 +288,7 @@ export default function Header ({ logo }) {
 
                         <Link href="/api/auth/signin">
                           <a
-                            className="text-indigo-600 hover:text-indigo-500"
+                            className={`text-${themeColor}-600 hover:text-${themeColor}-500`}
                             onClick={(e) => {
                               e.preventDefault()
                               signIn()

@@ -4,7 +4,7 @@ import Footer from '../components/footer'
 export default function Layout ({ children, title, app }) {
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
-      <Header logo={app.logo} />
+      <Header {...app} />
       <main className="antialiased font-sans bg-gray-50 overflow-hidden">
         {title && (
           <header className="bg-white shadow">
