@@ -10,8 +10,6 @@ class UserSettings extends Component {
   constructor(props) {
     super(props);
 
-    const { session, myself } = props;
-
     this.state = {
       user: {},
       credentialForm: "idle",
@@ -32,7 +30,7 @@ class UserSettings extends Component {
     event.preventDefault();
     const { password } = event.target;
 
-    axios.post("/api/user/me", { password: password.value })
+    axios.post("/api/users/me", { password: password.value })
       .then(this.setUser)
       .catch(console.error);
   }
@@ -41,7 +39,7 @@ class UserSettings extends Component {
     event.preventDefault();
     const { first_name, last_name } = event.target;
 
-    axios.post("/api/user/me", {
+    axios.post("/api/users/me", {
       first_name: first_name.value,
       last_name: last_name.value
     })
@@ -53,7 +51,7 @@ class UserSettings extends Component {
     event.preventDefault();
     const { title, description } = event.target;
 
-    axios.post("/api/user/me", {
+    axios.post("/api/users/me", {
       title: title.value,
       description: description.value
     })
@@ -96,7 +94,7 @@ class UserSettings extends Component {
                           </span>
                           <button
                             type="button"
-                            className="ml-5 bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                            className={`ml-5 bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-${themeColor}-500`}
                             >
                             Change
                           </button>
@@ -114,7 +112,7 @@ class UserSettings extends Component {
                           placeholder="Anonymous"
                           id="title"
                           autoComplete="title"
-                          className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                          className={`mt-1 focus:ring-${themeColor}-500 focus:border-${themeColor}-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md`}
                         />
                       </div>
 
@@ -128,7 +126,7 @@ class UserSettings extends Component {
                             id="description"
                             name="description"
                             rows={3}
-                            className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md"
+                            className={`shadow-sm focus:ring-${themeColor}-500 focus:border-${themeColor}-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md`}
                             placeholder="I am so brave"
                             />
                         </div>
@@ -185,7 +183,7 @@ class UserSettings extends Component {
                             id="first_name"
                             defaultValue={user.first_name}
                             autoComplete="given-name"
-                            className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                            className={`mt-1 focus:ring-${themeColor}-500 focus:border-${themeColor}-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md`}
                             />
                         </div>
 
@@ -200,7 +198,7 @@ class UserSettings extends Component {
                             id="last_name"
                             defaultValue={user.last_name}
                             autoComplete="family-name"
-                            className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                            className={`mt-1 focus:ring-${themeColor}-500 focus:border-${themeColor}-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md`}
                             />
                         </div>
 
@@ -215,7 +213,7 @@ class UserSettings extends Component {
                             name="email_address"
                             id="email_address"
                             autoComplete="email"
-                            className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                            className={`mt-1 focus:ring-${themeColor}-500 focus:border-${themeColor}-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md`}
                           />
                           <p className="mt-2 text-sm text-gray-500">
                             Sorry but you can't change your email.
@@ -269,7 +267,7 @@ class UserSettings extends Component {
                             type="password"
                             name="password"
                             id="password"
-                            className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                            className={`mt-1 focus:ring-${themeColor}-500 focus:border-${themeColor}-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md`}
                           />
                           <p className="mt-2 text-sm text-gray-500">
                             Just fill the input and save to update your password
@@ -293,14 +291,6 @@ class UserSettings extends Component {
         </Protected>
       </Layout>
     );
-  }
-}
-
-export async function getServerSideProps(context) {
-  return {
-    props: {
-      session: await getSession(context),
-    }
   }
 }
 

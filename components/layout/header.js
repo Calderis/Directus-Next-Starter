@@ -16,7 +16,7 @@ function classNames(...classes) {
 // The approach used in this component shows how to built a sign in and sign out
 // component that works on pages which support both client and server side
 // rendering, and avoids any flash incorrect content on initial page load.
-export default function Header ({ logo, themeColor }) {
+export default function Header ({ logo, themeColor, title }) {
   const [ session, loading ] = useSession();
   const router = useRouter();
 
@@ -25,7 +25,7 @@ export default function Header ({ logo, themeColor }) {
       {({ open }) => (
         <>
           <div className="max-w-7xl mx-auto px-4 sm:px-6">
-            <div className="flex justify-between items-center border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
+            <div className={`flex justify-between items-center ${title && "border-b-2 border-gray-100"} py-6 md:justify-start md:space-x-10`}>
               <div className="flex justify-start lg:w-0 lg:flex-1">
                 <Link href="/">
                   <a>

@@ -1,4 +1,4 @@
-import { PhoneIcon, PlayIcon, DesktopComputerIcon, ServerIcon, LockClosedIcon, ShieldExclamationIcon } from "@heroicons/react/outline";
+import { MailIcon, SearchIcon, DesktopComputerIcon, ServerIcon, LockClosedIcon, ShieldExclamationIcon } from "@heroicons/react/outline";
 
 module.exports = [
   { text: "Home", href: "/" },
@@ -36,8 +36,8 @@ module.exports = [
         }
       ],
       footer: [
-        { title: 'test', href: '#', icon: PlayIcon },
-        { title: 'Contact Sales', href: '#', icon: PhoneIcon },
+        { title: 'Search', href: '/search', icon: SearchIcon },
+        { title: 'Contact', href: '/contact', icon: MailIcon },
       ]
     }
   },

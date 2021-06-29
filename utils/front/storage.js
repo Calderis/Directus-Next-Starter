@@ -12,7 +12,7 @@ module.exports = {
       // Does sessionStorage has user saved ?
       if (storedUser) resolve(JSON.parse(storedUser));
       else { // Ask API
-        axios.get("/api/user/me")
+        axios.get("/api/users/me")
           .then(({ data }) => {
             // Save in localstorage
             sessionStorage.setItem("user", JSON.stringify(data));
