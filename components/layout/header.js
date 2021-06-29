@@ -7,7 +7,7 @@ import { Disclosure, Menu, Transition, Popover } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/solid";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 
-import navigation from "../menus/main";
+import navigation from "menus/main";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -231,11 +231,7 @@ export default function Header ({ logo, themeColor }) {
                 <div className="pt-5 pb-6 px-5">
                   <div className="flex items-center justify-between">
                     <div>
-                      <img
-                        className="h-8 w-auto"
-                        src={`https://tailwindui.com/img/logos/workflow-mark-${themeColor}-600.svg`}
-                        alt="Workflow"
-                      />
+                      <img className="h-8 w-auto" src={logo} alt="Workflow" />
                     </div>
                     <div className="-mr-2">
                       <Popover.Button className={`bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-${themeColor}-500`}>
