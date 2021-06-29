@@ -13,6 +13,8 @@ The goal is to start a fresh project based on the following stack : [Directus](h
 ### What's inside ?
 
 - Authentification ready
+- User settings page form
+- Fetch Directus Settings (require to unlock view permission into Public directus_settings)
 
 ## Getting Started
 

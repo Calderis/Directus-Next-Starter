@@ -1,21 +1,42 @@
-import { ChartBarIcon, PhoneIcon, PlayIcon } from "@heroicons/react/outline";
+import { PhoneIcon, PlayIcon, DesktopComputerIcon, ServerIcon, LockClosedIcon, ShieldExclamationIcon } from "@heroicons/react/outline";
 
 module.exports = [
   { text: "Home", href: "/" },
-  { text: "Client", href: "/client" },
-  { text: "Server", href: "/server" },
-  { text: "Protected", href: "/protected" },
-  { text: "Sub Menu", subMenu: {
+  { text: "Configuration", subMenu: {
       content: [
         {
-          title: 'Analytics',
-          description: 'Get a better understanding of where your traffic is coming from.',
-          href: '#',
-          icon: ChartBarIcon,
+          title: 'Client',
+          description: 'Gettings session data from client side.',
+          href: '/examples/client',
+          icon: DesktopComputerIcon,
+        },
+        {
+          title: 'Server',
+          description: 'Gettings session data from server side.',
+          href: '/examples/server',
+          icon: ServerIcon,
+        },
+        {
+          title: 'Protected',
+          description: 'Check how to protect some content throug the <Protected> component',
+          href: '/examples/protected',
+          icon: LockClosedIcon,
+        }
+      ],
+      footer: []
+    }
+  },
+  { text: "Pages", subMenu: {
+      content: [
+        {
+          title: 'Policy',
+          description: 'Page with long law text.',
+          href: '/examples/policy',
+          icon: ShieldExclamationIcon,
         }
       ],
       footer: [
-        { title: 'Watch Demo', href: '#', icon: PlayIcon },
+        { title: 'test', href: '#', icon: PlayIcon },
         { title: 'Contact Sales', href: '#', icon: PhoneIcon },
       ]
     }

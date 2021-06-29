@@ -4,6 +4,7 @@ import axios from "axios";
 import Layout from "../../components/layout";
 import Protected from "../../components/protected";
 import AccessDenied from "../../components/access-denied";
+import { getUser } from "../../utils/front/storage";
 
 class UserSettings extends Component {
   constructor(props) {
@@ -20,8 +21,8 @@ class UserSettings extends Component {
   }
 
   componentDidMount() {
-    axios.get("/api/user/me")
-      .then(this.setUser)
+    getUser()
+      .then(data => this.setUser(({ data })))
       .catch(console.error);
   }
 
@@ -62,14 +63,13 @@ class UserSettings extends Component {
 
   render() {
     const { user } = this.state;
+    const { app } = this.props;
 
     if (!user) return null;
 
-    console.log("user", user);
-
     // If session exists, display content
     return (
-      <Layout title="User settings">
+      <Layout title="User settings" app={app}>
         <Protected>
           <div className="mt-10 sm:mt-0">
             <div className="md:grid md:grid-cols-3 md:gap-6">
@@ -129,7 +129,6 @@ class UserSettings extends Component {
                             rows={3}
                             className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md"
                             placeholder="I am so brave"
-                            defaultValue={''}
                             />
                         </div>
                         <p className="mt-2 text-sm text-gray-500">

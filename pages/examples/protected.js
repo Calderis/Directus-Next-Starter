@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { useSession } from "next-auth/client";
-import Layout from "../components/layout";
-import Protected from "../components/protected";
-import AccessDenied from "../components/access-denied";
+import Layout from "../../components/layout";
+import Protected from "../../components/protected";
+import AccessDenied from "../../components/access-denied";
 
-export default function Page () {
+export default function Page ({ app }) {
   const [ session, loading ] = useSession();
 
   // When rendering client side don't display anything until loading is complete
@@ -12,7 +12,7 @@ export default function Page () {
 
   // If session exists, display content
   return (
-    <Layout title="Protected Page">
+    <Layout title="Protected Page" app={app}>
       Coucou
       <Protected>
         Ceci n'est affiché uniquement parce que vous êtes connecté

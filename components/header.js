@@ -16,7 +16,7 @@ function classNames(...classes) {
 // The approach used in this component shows how to built a sign in and sign out
 // component that works on pages which support both client and server side
 // rendering, and avoids any flash incorrect content on initial page load.
-export default function Header () {
+export default function Header ({ logo }) {
   const [ session, loading ] = useSession();
   const router = useRouter();
 
@@ -32,7 +32,7 @@ export default function Header () {
                     <span className="sr-only">Workflow</span>
                     <img
                       className="h-8 w-auto sm:h-10"
-                      src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
+                      src={logo}
                       alt=""
                     />
                   </a>
@@ -57,7 +57,7 @@ export default function Header () {
                                 'group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
                               )}
                             >
-                              <span>{item.text}</span>
+                              <span className="ml-2">{item.text}</span>
                               <ChevronDownIcon
                                 className={classNames(
                                   open ? 'text-gray-600' : 'text-gray-400',
@@ -97,18 +97,20 @@ export default function Header () {
                                       </Link>
                                     ))}
                                   </div>
-                                  <div className="px-5 py-5 bg-gray-50 space-y-6 sm:flex sm:space-y-0 sm:space-x-10 sm:px-8">
-                                    {item.subMenu.footer.map((subItem) => (
-                                      <div key={subItem.title} className="flow-root">
-                                        <Link href={subItem.href}>
-                                          <a className="-m-3 p-3 flex items-center rounded-md text-base font-medium text-gray-900 hover:bg-gray-100">
-                                            <subItem.icon className="flex-shrink-0 h-6 w-6 text-gray-400" aria-hidden="true" />
-                                            <span className="ml-3">{subItem.title}</span>
-                                          </a>
-                                        </Link>
-                                      </div>
-                                    ))}
-                                  </div>
+                                  {item.subMenu.footer && item.subMenu.footer.length > 0 && (
+                                    <div className="px-5 py-5 bg-gray-50 space-y-6 sm:flex sm:space-y-0 sm:space-x-10 sm:px-8">
+                                      {item.subMenu.footer.map((subItem) => (
+                                        <div key={subItem.title} className="flow-root">
+                                          <Link href={subItem.href}>
+                                            <a className="-m-3 p-3 flex items-center rounded-md text-base font-medium text-gray-900 hover:bg-gray-100">
+                                              <subItem.icon className="flex-shrink-0 h-6 w-6 text-gray-400" aria-hidden="true" />
+                                              <span className="ml-3">{subItem.title}</span>
+                                            </a>
+                                          </Link>
+                                        </div>
+                                      ))}
+                                    </div>
+                                  )}
                                 </div>
                               </Popover.Panel>
                             </Transition>
@@ -158,7 +160,7 @@ export default function Header () {
                             <div className="py-1">
                               <Menu.Item>
                                 {({ active }) => (
-                                  <Link href="user/settings">
+                                  <Link href="/user/settings">
                                     <a
                                       className={classNames(
                                         active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
@@ -263,7 +265,7 @@ export default function Header () {
                         Existing customer?{' '}
 
                         <Link href="/user/settings">
-                          <a className="text-indigo-600 hover:text-indigo-500">
+                          <a className="text-indigo-600 hover:text-indigo-500 mx-2">
                             Settings
                           </a>
                         </Link>
@@ -307,54 +309,3 @@ export default function Header () {
     </Popover>
   );
 }
-
-/*
-  <header>
-    <noscript>
-      <style>{`.nojs-show { opacity: 1; top: 0; }`}</style>
-    </noscript>
-    <div className={styles.signedInStatus}>
-      <p className={`nojs-show ${(!session && loading) ? styles.loading : styles.loaded}`}>
-        {!session && <>
-          <span className={styles.notSignedInText}>You are not signed in</span>
-          <a
-              href={`/api/auth/signin`}
-              className={styles.buttonPrimary}
-              onClick={(e) => {
-                e.preventDefault()
-                signIn()
-              }}
-            >
-              Sign in
-            </a>
-        </>}
-        {session && <>
-          {session.user.image && <span style={{backgroundImage: `url(${session.user.image})` }} className={styles.avatar}/>}
-          <span className={styles.signedInText}>
-            <small>Signed in as</small><br/>
-            <strong>{session.user.email || session.user.name}</strong>
-            </span>
-          <a
-              href={`/api/auth/signout`}
-              className={styles.button}
-              onClick={(e) => {
-                e.preventDefault()
-                signOut()
-              }}
-            >
-              Sign out
-            </a>
-        </>}
-      </p>
-    </div>
-    <nav>
-      <ul className={styles.navItems}>
-      <li className={styles.navItem}><Link href="/"><a>Home</a></Link></li>
-      <li className={styles.navItem}><Link href="/client"><a>Client</a></Link></li>
-      <li className={styles.navItem}><Link href="/server"><a>Server</a></Link></li>
-      <li className={styles.navItem}><Link href="/protected"><a>Protected</a></Link></li>
-      <li className={styles.navItem}><Link href="/api-example"><a>API</a></Link></li>
-      </ul>
-    </nav>
-  </header>
-*/

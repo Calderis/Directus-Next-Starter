@@ -1,8 +1,8 @@
-import Layout from '../components/layout'
+import Layout from "../../components/layout";
 
-export default function Page () {
+export default function Page ({ app }) {
   return (
-    <Layout title="Client Side Rendering">
+    <Layout title="Client Side Rendering" app={app}>
       <p>
         This page uses the <strong>useSession()</strong> React Hook in the <strong>&lt;Header/&gt;</strong> component.
       </p>

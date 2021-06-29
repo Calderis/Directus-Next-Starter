@@ -1,10 +1,10 @@
 import Header from '../components/header'
 import Footer from '../components/footer'
 
-export default function Layout ({ children, title }) {
+export default function Layout ({ children, title, app }) {
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
-      <Header/>
+      <Header logo={app.logo} />
       <main className="antialiased font-sans bg-gray-50 overflow-hidden">
         {title && (
           <header className="bg-white shadow">
