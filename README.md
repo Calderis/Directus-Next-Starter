@@ -10,11 +10,14 @@
 
 The goal is to start a fresh project based on the following stack : [Directus](https://directus.io) for the Headless CMS, Next.js and tailwind for the integration.
 
+(You can test online here)[directus-next-starter-7ssl47pj5-calderis.vercel.app]
+
 ### What's inside ?
 
 - Authentification ready
 - User settings page form
 - Fetch Directus Settings (require to unlock view permission into Public directus_settings)
+- Contact form
 
 ## Getting Started
 
