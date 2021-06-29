@@ -19,6 +19,17 @@ The goal is to start a fresh project based on the following stack : [Directus](h
 - Fetch Directus Settings (require to unlock view permission into Public directus_settings)
 - Contact form
 
+**TODO**
+- Forgot password
+- Register
+- Set back button on login forms
+- Search Page
+- Footer
+- Policy page
+- Privacy page
+- Update profile picture
+- Reload session on user settings change
+
 ## Getting Started
 
 ### 1. Clone the repository and install dependancies
