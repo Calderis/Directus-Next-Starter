@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { useSession } from "next-auth/client";
-import Layout from "../../components/layout";
-import Protected from "../../components/protected";
-import AccessDenied from "../../components/access-denied";
+import Layout from "components/layout";
+import Protected from "components/protected";
+import AccessDenied from "components/access-denied";
 
 export default function Page ({ app }) {
   const [ session, loading ] = useSession();

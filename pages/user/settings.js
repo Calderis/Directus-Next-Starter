@@ -1,10 +1,10 @@
 import { Component, useState, useEffect } from "react";
 import { getSession } from "next-auth/client";
 import axios from "axios";
-import Layout from "../../components/layout";
-import Protected from "../../components/protected";
-import AccessDenied from "../../components/access-denied";
-import { getUser } from "../../utils/front/storage";
+import Layout from "components/layout";
+import Protected from "components/protected";
+import AccessDenied from "components/access-denied";
+import { getUser } from "utils/front/storage";
 
 class UserSettings extends Component {
   constructor(props) {
