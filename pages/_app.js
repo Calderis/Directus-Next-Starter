@@ -2,6 +2,9 @@ import React from "react";
 import { Provider } from "next-auth/client";
 import axios from "axios";
 import "tailwindcss/tailwind.css";
+
+import Loading from "components/loading";
+
 import "./styles.css";
 
 // Use the <Provider> to improve performance and allow components that call
@@ -29,7 +32,7 @@ class App extends React.Component {
     const { Component, pageProps } = this.props;
 
     // Set loading screen
-    if (!this.state.name) return null;
+    if (!this.state.name) return <Loading color={this.state.themeColor || "gray"} />;
 
     return (
       <Provider

@@ -2099,6 +2099,11 @@ native-url@0.3.4:
   dependencies:
     querystring "^0.2.0"
 
+nearest-human-color@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/nearest-human-color/-/nearest-human-color-1.0.3.tgz#720844db01807a4211fedda962bd8b1ca2eb867e"
+  integrity sha512-7XqKDIH0JeuhtA691JcFN0sdvTh+FinKHJBYQQnQQ8wU5HF89LiIG8scEgMD1ekXdRnY+xtJIz2CTqZL5Nn1Ew==
+
 needle@^2.2.1:
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/needle/-/needle-2.6.0.tgz#24dbb55f2509e2324b4a99d61f413982013ccdbe"
