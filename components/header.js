@@ -5,44 +5,9 @@ import { signIn, signOut, useSession } from "next-auth/client";
 import { Fragment } from "react"
 import { Disclosure, Menu, Transition, Popover } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/solid";
+import { MenuIcon, XIcon } from "@heroicons/react/outline";
 
-import { ChartBarIcon, MenuIcon, PhoneIcon, PlayIcon, XIcon } from '@heroicons/react/outline'
-
-const navigation = [
-  { text: "Home", href: "/" },
-  { text: "Client", href: "/client" },
-  { text: "Server", href: "/server" },
-  { text: "Protected", href: "/protected" },
-  { text: "API", href: "/api-example" },
-  { text: "Sub Menu", subMenu: {
-      content: [
-        {
-          title: 'Analytics',
-          description: 'Get a better understanding of where your traffic is coming from.',
-          href: '#',
-          icon: ChartBarIcon,
-        }
-      ],
-      footer: [
-        { title: 'Watch Demo', href: '#', icon: PlayIcon },
-        { title: 'Contact Sales', href: '#', icon: PhoneIcon },
-      ]
-    }
-  },
-];
-// const profile = [
-//   { item: "Your Profile", href: "/profile" },
-//   { item: "Settings", href: "/settings" },
-//   {
-//     item: "Sign out",
-//     href: "/api/auth/signout",
-//     onClick: (e) => {
-//       e.preventDefault()
-//       signOut()
-//     }
-//   },
-// ];
-
+import navigation from "../menus/main";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -171,7 +136,7 @@ export default function Header () {
                             <div className="flex-shrink-0 h-5 w-5 mr-2">
                               <img className="h-5 w-5 rounded-full" src={session.user.image} alt="" />
                             </div>
-                            {session.user.name}
+                            {session.user.title || session.user.name}
                             <ChevronDownIcon className="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />
                           </Menu.Button>
                         </div>
