@@ -5,8 +5,6 @@ import Layout from "../../components/layout";
 import Protected from "../../components/protected";
 import AccessDenied from "../../components/access-denied";
 
-import { directus } from "/utils/directus";
-
 class UserSettings extends Component {
   constructor(props) {
     super(props);
@@ -20,14 +18,13 @@ class UserSettings extends Component {
     };
   }
 
-  savePersonnalForm = event => {
+  savePersonnalForm = async event => {
     event.preventDefault();
     const { first_name, last_name } = event.target;
 
     axios.post("/api/user/me", {
       first_name: first_name.value,
-      last_name: last_name.value,
-      accessToken: this.state.user.accessToken
+      last_name: last_name.value
     })
       .then(console.log)
       .catch(console.error);
@@ -273,7 +270,6 @@ export async function getServerSideProps(context) {
   return {
     props: {
       session: await getSession(context),
-      // myself: await directus.users.me.read(),
     }
   }
 }

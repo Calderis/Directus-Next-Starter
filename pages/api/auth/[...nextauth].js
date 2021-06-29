@@ -23,8 +23,9 @@ const options = {
         const { email, password } = credentials;
         let user = null;
         try {
-          const auth = await directus.auth.login({ email, password }, { refresh: { auto: true } });
+          const auth = await directus.auth.login({ email, password });
           const data = await directus.users.me.read();
+
           user = data;
           user.id = data.id;
           user.name = `${data.first_name} ${data.last_name}`;

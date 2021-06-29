@@ -5,8 +5,6 @@ import Router from "next/router";
 import { providers, signIn, csrfToken } from "next-auth/client";
 import { LockClosedIcon, EyeIcon, EyeOffIcon } from "@heroicons/react/solid";
 
-
-
 class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -31,9 +29,10 @@ class Login extends React.Component {
     this.setState({ error: "" });
 
     signIn("credentials", { redirect: false, email, password })
-      .then(({ ok, status, url }) => {
+      .then(async ({ ok, status, url }) => {
         if (!ok) this.setState({ error: "Wrong email or password." })
         else {
+          // Redirect
           const urlParams = new URLSearchParams(window.location.search);
           const callbackUrl = urlParams.get("callbackUrl");
           if (callbackUrl) Router.push({ pathname: callbackUrl })

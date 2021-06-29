@@ -1849,6 +1849,19 @@ jws@^3.2.2:
     jwa "^1.4.1"
     safe-buffer "^5.0.1"
 
+koekiemonster@1.0.x:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/koekiemonster/-/koekiemonster-1.0.0.tgz#ae8145428d98e4a0b344a83153936ed7cf4d93ef"
+  integrity sha1-roFFQo2Y5KCzRKgxU5Nu189Nk+8=
+
+koekje@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/koekje/-/koekje-0.1.0.tgz#0481947c72c556b18169c0a5975d70d8fda8e3b7"
+  integrity sha1-BIGUfHLFVrGBacCll11w2P2o47c=
+  dependencies:
+    koekiemonster "1.0.x"
+    querystringify "1.0.x"
+
 lilconfig@^2.0.3:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/lilconfig/-/lilconfig-2.0.3.tgz#68f3005e921dafbd2a2afb48379986aa6d2579fd"
@@ -2375,6 +2388,11 @@ object.assign@^4.1.2:
     has-symbols "^1.0.1"
     object-keys "^1.1.1"
 
+objstorage@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/objstorage/-/objstorage-1.0.0.tgz#9bd69b6068343db694f109dd9802e8b456407618"
+  integrity sha512-wBnDLmz20/Xv3USZbpiKxV3A1wAq1Ezl87yAZ9INSjqB/0+efNjSG9m6gq0dYPNB4yzobGdA/vkYQuxUJRjYVQ==
+
 once@^1.3.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/once/-/once-1.4.0.tgz#583b1aa775961d4b113ac17d9c50baef9dd76bd1"
@@ -2724,6 +2742,16 @@ querystring@^0.2.0:
   resolved "https://registry.yarnpkg.com/querystring/-/querystring-0.2.1.tgz#40d77615bb09d16902a85c3e38aa8b5ed761c2dd"
   integrity sha512-wkvS7mL/JMugcup3/rMitHmd9ecIGd2lhFhK9N3UUQ450h66d1r3Y9nvXzQAW1Lq+wyx61k/1pfKS5KuKiyEbg==
 
+querystringify@0.0.x:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/querystringify/-/querystringify-0.0.4.tgz#0cf7f84f9463ff0ae51c4c4b142d95be37724d9c"
+  integrity sha1-DPf4T5Rj/wrlHExLFC2VvjdyTZw=
+
+querystringify@1.0.x:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/querystringify/-/querystringify-1.0.0.tgz#6286242112c5b712fa654e526652bf6a13ff05cb"
+  integrity sha1-YoYkIRLFtxL6ZU5SZlK/ahP/Bcs=
+
 queue-microtask@^1.2.2:
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/queue-microtask/-/queue-microtask-1.2.3.tgz#4929228bbc724dfac43e0efb058caf7b6cfb6243"
@@ -3000,6 +3028,15 @@ semver@~5.3.0:
   version "5.3.0"
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.3.0.tgz#9b2ce5d3de02d17c6012ad326aa6b4d0cf54f94f"
   integrity sha1-myzl094C0XxgEq0yaqa00M9U+U8=
+
+sessionstorage@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/sessionstorage/-/sessionstorage-0.1.0.tgz#ac1a8204e6c65d944c4a3a1f9c0f444b9da1cadb"
+  integrity sha512-z0PrRunU4LRiP73qfXyynz9AZwBDVDmwEFDyA4GAETONnFewp5ZY0BY/1T31bR8XsVOXEtSPIS7BU+ecZhFmcQ==
+  dependencies:
+    koekje "^0.1.0"
+    objstorage "^1.0.0"
+    window.name "^0.0.3"
 
 set-blocking@~2.0.0:
   version "2.0.0"
@@ -3628,6 +3665,13 @@ wide-align@^1.1.0:
   integrity sha512-QGkOQc8XL6Bt5PwnsExKBPuMKBxnGxWWW3fU55Xt4feHozMUhdUMaBCk290qpm/wG5u/RSKzwdAC4i51YigihA==
   dependencies:
     string-width "^1.0.2 || 2"
+
+window.name@^0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/window.name/-/window.name-0.0.3.tgz#454a3da706d42418709a2753efb36098b6536f59"
+  integrity sha1-RUo9pwbUJBhwmidT77NgmLZTb1k=
+  dependencies:
+    querystringify "0.0.x"
 
 wrap-ansi@^7.0.0:
   version "7.0.0"

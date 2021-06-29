@@ -1,13 +1,13 @@
 import { Directus, MemoryStorage, Auth, AxiosTransport } from "@directus/sdk";
 import { randomBytes } from "crypto";
+import sessionstorage from "sessionstorage";
 
 /* global LocalStorage */
 
-const prefix = randomBytes(8).toString("hex");
 const isBrowser = typeof LocalStorage !== "undefined";
 
 // Storage adapter where authentication state (token & expiration) is stored.
-const storage = isBrowser ? new LocalStorage() : new MemoryStorage(prefix);
+const storage = isBrowser ? new LocalStorage() : sessionstorage;
 
 // Transport used to communicate with the server.
 const transport = new AxiosTransport(process.env.API_URL, storage, async () => {
