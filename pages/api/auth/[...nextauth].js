@@ -24,7 +24,7 @@ const options = {
         let user = null;
         try {
           const auth = await directus.auth.login({ email, password }, { refresh: { auto: true } });
-          const { data } = await directus.users.me.read();
+          const data = await directus.users.me.read();
           user = data;
           user.id = data.id;
           user.name = `${data.first_name} ${data.last_name}`;
@@ -35,7 +35,7 @@ const options = {
           user.tags = data.tags;
           user.image = data.avatar ? `${process.env.API_URL}/assets/${data.avatar}` : "/images/User.png";
           user.email = data.email;
-          user.accessToken = auth.data.access_token;
+          user.accessToken = auth.access_token;
         } catch (e) {
           console.error(e);
           return null;
