@@ -19,28 +19,6 @@ class Connexion extends React.Component {
     this.setState({ showPassword: !showPassword });
   }
 
-  login = e => {
-    e.preventDefault();
-    e.stopPropagation();
-    const email = e.target.elements.email.value;
-    const password = e.target.elements.password.value;
-
-    this.setState({ error: "" });
-
-    signIn("credentials", { redirect: false, email, password })
-      .then(async (response) => {
-        if (response && !response.ok) this.setState({ error: "Wrong email or password." })
-        else {
-          // Redirect
-          const urlParams = new URLSearchParams(window.location.search);
-          const callbackUrl = urlParams.get("callbackUrl");
-          if (callbackUrl) Router.push({ pathname: callbackUrl })
-          else Router.push({ pathname: "/" })
-        }
-      })
-      .catch(console.error);
-  };
-
   render() {
     const { error, showPassword, screenMode } = this.state;
     const { providers, csrfToken, app } = this.props;
