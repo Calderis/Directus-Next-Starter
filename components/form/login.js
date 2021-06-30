@@ -36,6 +36,7 @@ class Login extends React.Component {
 
     signIn(providerId, options)
       .then(async (response) => {
+        console.log("response", response);
         if (response && !response.ok) this.setState({ error })
         else {
           // Redirect
