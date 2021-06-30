@@ -1,7 +1,6 @@
 import React from "react";
 import Router from "next/router";
 import { LockClosedIcon, EyeIcon, EyeOffIcon } from "@heroicons/react/solid";
-import { signIn } from "next-auth/client";
 import LoginForm from "./login";
 
 class Connexion extends React.Component {
@@ -68,25 +67,7 @@ class Connexion extends React.Component {
             </div>
             {screenMode === "Sign In" && (
               <div>
-                {Object.values(providers).map((provider, index) => (
-                  <div key={provider.name}>
-                    {index > 0 && (
-                      <p className="my-2 text-center text-sm text-gray-600">
-                        Or
-                      </p>
-                    )}
-                    {provider.name === "Credentials" ? (
-                      <LoginForm app={app} providers={providers} csrfToken={csrfToken} />
-                    ) : (
-                      <button
-                        onClick={() => signIn(provider.id)}
-                        className="w-full text-center block items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                        >
-                        Sign with {provider.name}
-                      </button>
-                    )}
-                  </div>
-                ))}
+                <LoginForm app={app} providers={providers} csrfToken={csrfToken} />
               </div>
             )}
           </div>
