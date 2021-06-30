@@ -5,6 +5,7 @@ import Layout from "components/layout";
 import Protected from "components/protected";
 import AccessDenied from "components/access-denied";
 import { getUser } from "utils/front/storage";
+import { CheckIcon, ExclamationCircleIcon, PaperAirplaneIcon } from "@heroicons/react/solid";
 
 class Contact extends Component {
   constructor(props) {
@@ -123,13 +124,33 @@ class Contact extends Component {
                   </div>
                 </div>
                 <div className="px-4 py-3 bg-gray-50 text-right sm:px-6">
-                  {status}
-                  <button
-                    type="submit"
-                    className={`inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-${themeColor}-600 hover:bg-${themeColor}-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-${themeColor}-500`}
-                  >
-                    Send
-                  </button>
+                  {status === "sent" && (
+                    <button
+                      disabled
+                      className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+                      >
+                      <CheckIcon className="-ml-1 mr-2 h-5 w-5" aria-hidden="true" />
+                      Sent ! We'll be reading this out.
+                    </button>
+                  )}
+                  {status === "idle" && (
+                    <button
+                      type="submit"
+                      className={`inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-${themeColor}-600 hover:bg-${themeColor}-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-${themeColor}-500`}
+                      >
+                      <PaperAirplaneIcon className="-ml-1 mr-2 h-5 w-5" aria-hidden="true" />
+                      Send message
+                    </button>
+                  )}
+                  {status === "fail" && (
+                    <button
+                      type="submit"
+                      className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                      >
+                      <ExclamationCircleIcon className="-ml-1 mr-2 h-5 w-5" aria-hidden="true" />
+                      Failed. Retry ?
+                    </button>
+                  )}
                 </div>
               </div>
             </form>
