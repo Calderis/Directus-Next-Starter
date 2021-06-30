@@ -14,7 +14,7 @@ The goal is to start a fresh project based on the following stack : [Directus](h
 
 ### What's inside ?
 
-- Authentification ready
+- Authentification ready (User, Github)
 - User settings page form
 - Fetch Directus Settings (require to unlock view permission into Public directus_settings)
 - Contact form
