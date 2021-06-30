@@ -1,4 +1,5 @@
 import { directus } from "/utils/directus";
+import sessionstorage from "sessionstorage";
 
 const colors = {
   gray: "#6B7280",
@@ -13,7 +14,7 @@ const colors = {
 
 export default async function handler(req, res) {
   const nearestHumanColor = require("nearest-human-color").from(colors);
-  const settings = localstorage.getItem("settings");
+  const settings = sessionstorage.getItem("settings");
   let responseReturned = false;
 
   if (settings) {
@@ -33,7 +34,7 @@ export default async function handler(req, res) {
 
   directus.settings.readMany()
     .then(({ data }) => {
-      localstorage.setItem("settings", JSON.stringify(data));
+      sessionstorage.setItem("settings", JSON.stringify(data));
 
       if (!responseReturned) {
         const themeColor = nearestHumanColor(data.project_color).name;
