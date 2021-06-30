@@ -21,14 +21,22 @@ class Login extends React.Component {
   login = (e, providerId) => {
     e.preventDefault();
     e.stopPropagation();
-    const email = e.target.elements.email.value;
-    const password = e.target.elements.password.value;
+
+    const options = { redirect: false };
+    let error = "";
 
     this.setState({ error: "" });
 
-    signIn(providerId, { redirect: false, email, password })
+    if (providerId === "credentials") {
+      error = "Wrong email or password.";
+      options.email = e.target.elements.email.value;
+      options.password = e.target.elements.password.value;
+    } else error = "Failed to authenticate.";
+
+
+    signIn(providerId, options)
       .then(async ({ ok, status, url }) => {
-        if (!ok) this.setState({ error: "Wrong email or password." })
+        if (!ok) this.setState({ error })
         else {
           // Redirect
           const urlParams = new URLSearchParams(window.location.search);
