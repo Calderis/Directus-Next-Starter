@@ -28,8 +28,8 @@ class Connexion extends React.Component {
     this.setState({ error: "" });
 
     signIn("credentials", { redirect: false, email, password })
-      .then(async ({ ok, status, url }) => {
-        if (!ok) this.setState({ error: "Wrong email or password." })
+      .then(async (response) => {
+        if (response && !response.ok) this.setState({ error: "Wrong email or password." })
         else {
           // Redirect
           const urlParams = new URLSearchParams(window.location.search);
