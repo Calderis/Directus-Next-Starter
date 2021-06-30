@@ -52,6 +52,8 @@ cp .env.local.example .env.local
 
 You will require a Directus to mount your database. By default it does run on the port 8055.
 
+You can start it through `yarn setup:directus` or follow the Directus quickstart.
+
 * Quick start: [Getting started](https://directus.io/open-source/#install)
 
 ### 3. Start the application

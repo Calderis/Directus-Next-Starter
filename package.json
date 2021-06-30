@@ -8,7 +8,9 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "setup:directus": "npx create-directus-project Directus",
+    "start:directus": "cd Directus && npx directus start"
   },
   "author": "Calderis <r.wetteren@gmail.com>",
   "license": "ISC",
