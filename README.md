@@ -14,21 +14,19 @@ The goal is to start a fresh project based on the following stack : [Directus](h
 
 ### What's inside ?
 
-- Authentification ready (User, Github)
+- Authentification ready
 - User settings page form
 - Fetch Directus Settings (require to unlock view permission into Public directus_settings)
 - Contact form
 
 **TODO**
-- Forgot password
-- Register
-- Set back button on login forms
 - Search Page
 - Footer
 - Policy page
 - Privacy page
 - Update profile picture
 - Reload session on user settings change
+- Other Oauth (Github, Google, ...)
 
 ## Getting Started
 
@@ -56,7 +54,19 @@ You can start it through `yarn setup:directus` or follow the Directus quickstart
 
 * Quick start: [Getting started](https://directus.io/open-source/#install)
 
-### 3. Start the application
+### 3. Setup Directus Env
+
+You should setup Directus env with following env variables :
+```
+PASSWORD_RESET_URL_ALLOW_LIST="http://localhost:3000/login/password-reset"
+EMAIL_FROM=
+EMAIL_SMTP_HOST=
+EMAIL_SMTP_PORT=
+EMAIL_SMTP_USER=
+EMAIL_SMTP_PASSWORD=
+```
+
+### 4. Start the application
 
 To run your site locally, use:
 
@@ -76,6 +86,15 @@ And run your directus in an other terminal
 ```
 npx directus start
 ```
+
+### 5. Change Directus Toles & Permissions from settings
+
+You should allow the following for Public :
+| Collection | Permission | Level |
+|------------|------------|-------|
+| directus_settings | read | full |
+| directus_users | create | full |
+| directus_users | read | email, avatar, title, description, id, tags |
 
 ## License
 

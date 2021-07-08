@@ -6,7 +6,7 @@ function LoginPage ({ app, providers, csrfToken }) {
   return (
     <div className={`md:grid md:grid-cols-2 md:gap-6 bg-${app.themeColor || "blue"}-500`}>
       <div className="md:col-span-1">
-        <ConnexionForm app={app} providers={providers} csrfToken={csrfToken} />
+        <ConnexionForm app={app} providers={providers} csrfToken={csrfToken} screenMode="Reset password" />
       </div>
       <div className={`md:col-span-1`} />
     </div>

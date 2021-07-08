@@ -1,7 +1,10 @@
 import React from "react";
 import Router from "next/router";
 import { LockClosedIcon, EyeIcon, EyeOffIcon } from "@heroicons/react/solid";
-import LoginForm from "./login";
+import SignInForm from "./signin";
+import SignUpForm from "./signup";
+import ForgotForm from "./forgot";
+import ChangePasswordForm from "./changePassword";
 
 class Connexion extends React.Component {
   constructor(props) {
@@ -10,7 +13,16 @@ class Connexion extends React.Component {
     this.state = {
       error: "",
       showPassword: false,
-      screenMode: "Sign In"
+      token: null,
+      screenMode: props.screenMode || "Sign In"
+    }
+  }
+
+  componentDidMount() {
+    if (typeof document !== "undefined") {
+      const urlParams = new URLSearchParams(window.location.search);
+      const token = urlParams.get("token");
+      if (token) this.setState({ token });
     }
   }
 
@@ -19,12 +31,12 @@ class Connexion extends React.Component {
     this.setState({ showPassword: !showPassword });
   }
 
+  openScreen = screenMode => this.setState({ screenMode });
+
   render() {
-    const { error, showPassword, screenMode } = this.state;
+    const { error, showPassword, screenMode, token } = this.state;
     const { providers, csrfToken, app } = this.props;
     const { themeColor, logo, name } = app;
-
-    console.log("providers", providers);
 
     return (
       <section className="login">
@@ -45,7 +57,38 @@ class Connexion extends React.Component {
             </div>
             {screenMode === "Sign In" && (
               <div>
-                <LoginForm app={app} providers={providers} csrfToken={csrfToken} />
+                <SignInForm
+                  app={app}
+                  providers={providers}
+                  csrfToken={csrfToken}
+                  onCreateAccount={() => this.openScreen("Sign Up")}
+                  onForgotPassword={() => this.openScreen("Reset password")}
+                />
+              </div>
+            )}
+            {screenMode === "Sign Up" && (
+              <div>
+                <SignUpForm
+                  app={app}
+                  onSignIn={() => this.openScreen("Sign In")}
+                  onForgotPassword={() => this.openScreen("Reset password")}
+                />
+              </div>
+            )}
+            {screenMode === "Reset password" && (
+              <div>
+                {token ? (
+                  <ChangePasswordForm
+                    app={app}
+                    token={token}
+                    onSignIn={() => this.openScreen("Sign In")}
+                  />
+                ) : (
+                  <ForgotForm
+                    app={app}
+                    onSignIn={() => this.openScreen("Sign In")}
+                  />
+                )}
               </div>
             )}
           </div>

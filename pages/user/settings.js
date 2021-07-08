@@ -6,7 +6,7 @@ import Protected from "components/protected";
 import AccessDenied from "components/access-denied";
 import { getUser } from "utils/front/storage";
 
-class UserSettings extends Component {
+class UserSettingsPage extends Component {
   constructor(props) {
     super(props);
 
@@ -294,4 +294,4 @@ class UserSettings extends Component {
   }
 }
 
-export default UserSettings;
+export default UserSettingsPage;

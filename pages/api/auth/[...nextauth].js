@@ -28,6 +28,7 @@ if (process.env.OAUTH_GITHUB_KEY) {
 const options = {
   // @link https://next-auth.js.org/configuration/providers
   providers: [
+    ...providers,
     Providers.Credentials({
       // The name to display on the sign in form (e.g. 'Sign in with...')
       name: "Credentials",
@@ -69,7 +70,6 @@ const options = {
         return null
       }
     }),
-    ...providers
   ],
 
   // @link https://next-auth.js.org/configuration/databases
