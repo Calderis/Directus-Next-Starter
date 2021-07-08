@@ -26,7 +26,8 @@ The goal is to start a fresh project based on the following stack : [Directus](h
 - Privacy page
 - Update profile picture
 - Reload session on user settings change
-- Other Oauth (Github, Google, ...)
+- Clear all user data feature @RGPD
+- Get All user data @RGPD
 
 ## Getting Started
 
