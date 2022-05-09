@@ -5,25 +5,27 @@ import { directus } from "/utils/directus";
 
 const providers = [];
 
-// Add google provider
-if (process.env.OAUTH_GOOGLE_KEY) {
-  providers.push(
-    Providers.Google({
-      clientId: process.env.OAUTH_GOOGLE_KEY,
-      clientSecret: process.env.OAUTH_GOOGLE_SECRET
-    }),
-  )
-}
+/* The following code does not work yet */
 
-// Add google provider
-if (process.env.OAUTH_GITHUB_KEY) {
-  providers.push(
-    Providers.GitHub({
-      clientId: process.env.OAUTH_GITHUB_KEY,
-      clientSecret: process.env.OAUTH_GITHUB_SECRET
-    }),
-  )
-}
+// // Add google provider
+// if (process.env.OAUTH_GOOGLE_KEY) {
+//   providers.push(
+//     Providers.Google({
+//       clientId: process.env.OAUTH_GOOGLE_KEY,
+//       clientSecret: process.env.OAUTH_GOOGLE_SECRET
+//     }),
+//   )
+// }
+//
+// // Add google provider
+// if (process.env.OAUTH_GITHUB_KEY) {
+//   providers.push(
+//     Providers.GitHub({
+//       clientId: process.env.OAUTH_GITHUB_KEY,
+//       clientSecret: process.env.OAUTH_GITHUB_SECRET
+//     }),
+//   )
+// }
 
 const options = {
   // @link https://next-auth.js.org/configuration/providers
