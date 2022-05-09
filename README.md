@@ -81,11 +81,6 @@ I hope it'll help you kickstart your next project.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-<!-- GETTING STARTED -->
-## Getting Started
-
-The goal is to start a fresh project based on the following stack : [Directus](https://directus.io) for the Headless CMS, Next.js and tailwind for the integration.
-
 ### Prerequisites
 
 This project is only about the Next.js/React side of the deal. You therefore need to setup a Directus project on your own.
@@ -99,8 +94,6 @@ You can start it through `yarn setup:directus` or follow the Directus quickstart
 * Quick start: [Getting started](https://directus.io/open-source/#install)
 
 ### Installation
-
-## Getting Started
 
 1. Clone the repository and install dependancies
 
@@ -151,7 +144,7 @@ And run your directus in an other terminal
 npx directus start
 ```
 
-5. Change Directus Toles & Permissions from settings
+5. Change Directus Roles & Permissions from settings
 
 You should allow the following for Public :
 | Collection | Permission | Level |
