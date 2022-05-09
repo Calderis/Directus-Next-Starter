@@ -17,7 +17,7 @@
   <p align="center">
     An awesome README template to jumpstart your projects!
     <br />
-    <a href="https://github.com/Calderis/Directus-Next-Starter"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/Calderis/Directus-Next-Starter/wiki"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="https://directus-next-starter-oj5hbr7nh-calderis.vercel.app/">View Demo</a>
@@ -251,7 +251,7 @@ Test it online: [https://directus-next-starter.vercel.app/](https://directus-nex
 [license-url]: https://github.com/Calderis/Directus-Next-Starter/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/othneildrew
-[product-screenshot]: https://imgur.com/bv5YaPU
+[product-screenshot]: https://i.imgur.com/bv5YaPU.png
 
 
 <p align="center">
