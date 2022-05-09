@@ -72,7 +72,7 @@ class SignUp extends React.Component {
   };
 
   render() {
-    const { error, showPassword, passwordStrengh, pseudoTaken, title, password } = this.state;
+    const { error, showPassword, passwordStrengh, pseudoTaken, title, password, loading } = this.state;
     const { app, onSignIn } = this.props;
     const { themeColor } = app;
 
