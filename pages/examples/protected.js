@@ -13,7 +13,7 @@ export default function Page ({ app }) {
   // If session exists, display content
   return (
     <Layout title="Protected Page" app={app}>
-      Coucou
+      This text will always be displayed.
       <Protected>
         Ceci n'est affiché uniquement parce que vous êtes connecté
       </Protected>

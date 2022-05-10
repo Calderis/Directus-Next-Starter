@@ -1,5 +1,17 @@
 # Changelog
 
+## v1.1.0
+
+### Added or Changed
+- All products page
+- Product detail page
+- Prevent reloading Directus settings on each reload
+- Add footer with github link
+
+### Removed
+
+- Loader
+
 ## v1.0.0
 
 ### Added or Changed

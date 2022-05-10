@@ -1,4 +1,4 @@
-import { MailIcon, SearchIcon, DesktopComputerIcon, ServerIcon, LockClosedIcon, ShieldExclamationIcon } from "@heroicons/react/outline";
+import { MailIcon, SearchIcon, DesktopComputerIcon, ServerIcon, LockClosedIcon, ShieldExclamationIcon, ShoppingBagIcon } from "@heroicons/react/outline";
 
 module.exports = [
   { text: "Home", href: "/" },
@@ -28,6 +28,12 @@ module.exports = [
   },
   { text: "Pages", subMenu: {
       content: [
+        {
+          title: "Products",
+          description: "Page that load products items from Directus",
+          href: "/examples/products",
+          icon: ShoppingBagIcon,
+        },
         {
           title: "Policy",
           description: "Page with long law text.",

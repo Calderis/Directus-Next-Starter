@@ -17,7 +17,7 @@
   <p align="center">
     An awesome README template to jumpstart your projects!
     <br />
-    <a href="https://github.com/Calderis/Directus-Next-Starter"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/Calderis/Directus-Next-Starter/wiki"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="https://directus-next-starter-oj5hbr7nh-calderis.vercel.app/">View Demo</a>
@@ -81,11 +81,6 @@ I hope it'll help you kickstart your next project.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-<!-- GETTING STARTED -->
-## Getting Started
-
-The goal is to start a fresh project based on the following stack : [Directus](https://directus.io) for the Headless CMS, Next.js and tailwind for the integration.
-
 ### Prerequisites
 
 This project is only about the Next.js/React side of the deal. You therefore need to setup a Directus project on your own.
@@ -99,8 +94,6 @@ You can start it through `yarn setup:directus` or follow the Directus quickstart
 * Quick start: [Getting started](https://directus.io/open-source/#install)
 
 ### Installation
-
-## Getting Started
 
 1. Clone the repository and install dependancies
 
@@ -151,7 +144,7 @@ And run your directus in an other terminal
 npx directus start
 ```
 
-5. Change Directus Toles & Permissions from settings
+5. Change Directus Roles & Permissions from settings
 
 You should allow the following for Public :
 | Collection | Permission | Level |
@@ -251,7 +244,7 @@ Test it online: [https://directus-next-starter.vercel.app/](https://directus-nex
 [license-url]: https://github.com/Calderis/Directus-Next-Starter/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/othneildrew
-[product-screenshot]: https://imgur.com/bv5YaPU
+[product-screenshot]: https://i.imgur.com/bv5YaPU.png
 
 
 <p align="center">

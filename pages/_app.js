@@ -3,8 +3,6 @@ import { Provider } from "next-auth/client";
 import axios from "axios";
 import "tailwindcss/tailwind.css";
 
-import Loading from "components/loading";
-
 import "./styles.css";
 
 // Use the <Provider> to improve performance and allow components that call
@@ -31,9 +29,6 @@ class App extends React.Component {
   render() {
     const { Component, pageProps } = this.props;
 
-    // Set loading screen
-    if (!this.state.name) return <Loading color={this.state.themeColor || "gray"} />;
-
     return (
       <Provider
         // Provider options are not required but can be useful in situations where
@@ -53,7 +48,8 @@ class App extends React.Component {
           // windows / tabs will be updated to reflect the user is signed out.
           keepAlive: 0
         }}
-        session={pageProps.session} >
+        session={pageProps.session}
+      >
         <Component {...pageProps} app={this.state} />
       </Provider>
     )
