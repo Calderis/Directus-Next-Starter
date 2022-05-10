@@ -245,12 +245,3 @@ Test it online: [https://directus-next-starter.vercel.app/](https://directus-nex
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/othneildrew
 [product-screenshot]: https://i.imgur.com/bv5YaPU.png
-
-
-<p align="center">
-   <br/>
-   <h3 align="center">Directus / Next.js / Tailwind starer</h3>
-   <p align="center">
-   Start a project right now
-   </p>
-</p>
