@@ -1,6 +1,8 @@
 import { directus } from "/utils/directus";
 import sessionstorage from "sessionstorage";
 
+let serverSettings = null;
+
 const colors = {
   gray: "#6B7280",
   red: "#EF4444",
@@ -17,9 +19,9 @@ export default async function handler(req, res) {
   const settings = sessionstorage.getItem("settings");
   let responseReturned = false;
 
-  if (settings) {
+  if (serverSettings || settings) {
     responseReturned = true;
-    const storedSettings = JSON.parse(settings);
+    const storedSettings =  serverSettings || JSON.parse(settings);
     const themeColor = nearestHumanColor(storedSettings.project_color).name;
 
     res.status(200).json({
@@ -30,24 +32,25 @@ export default async function handler(req, res) {
       customCSS: storedSettings.custom_css,
       url: storedSettings.project_url
     });
+  } else {
+    directus.settings.readMany()
+      .then(({ data }) => {
+        sessionstorage.setItem("settings", JSON.stringify(data));
+        serverSettings = data;
+
+        if (!responseReturned) {
+          const themeColor = nearestHumanColor(data.project_color).name;
+
+          res.status(200).json({
+            name: data.project_name || "Project",
+            logo: data.project_logo ? `${process.env.API_URL}/assets/${data.project_logo}` : `https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg`,
+            color: data.project_color,
+            themeColor,
+            customCSS: data.custom_css,
+            url: data.project_url
+          });
+        }
+      })
+      .catch(res.status(404).json);
   }
-
-  directus.settings.readMany()
-    .then(({ data }) => {
-      sessionstorage.setItem("settings", JSON.stringify(data));
-
-      if (!responseReturned) {
-        const themeColor = nearestHumanColor(data.project_color).name;
-
-        res.status(200).json({
-          name: data.project_name || "Project",
-          logo: data.project_logo ? `${process.env.API_URL}/assets/${data.project_logo}` : `https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg`,
-          color: data.project_color,
-          themeColor,
-          customCSS: data.custom_css,
-          url: data.project_url
-        });
-      }
-    })
-    .catch(res.status(404).json);
 }
