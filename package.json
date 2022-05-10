@@ -20,7 +20,7 @@
     "@heroicons/react": "^1.0.1",
     "@tailwindcss/forms": "^0.3.3",
     "nearest-human-color": "^1.0.3",
-    "next": "^11.0.0",
+    "next": "^12.1.0",
     "next-auth": "latest",
     "nodemailer": "^6.6.2",
     "react": "^17.0.2",
