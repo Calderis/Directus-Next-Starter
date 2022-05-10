@@ -1,5 +1,17 @@
 # Changelog
 
+## v1.1.1
+
+### Added or Changed
+
+- Upgrade next version
+- Upgrade next-auth version
+- Update README file
+
+### Removed
+
+- Remove sqlite3 unused dependencies
+
 ## v1.1.0
 
 ### Added or Changed
