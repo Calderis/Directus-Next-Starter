@@ -48,7 +48,8 @@ class App extends React.Component {
           // windows / tabs will be updated to reflect the user is signed out.
           keepAlive: 0
         }}
-        session={pageProps.session} >
+        session={pageProps.session}
+      >
         <Component {...pageProps} app={this.state} />
       </Provider>
     )
