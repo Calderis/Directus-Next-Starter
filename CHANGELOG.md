@@ -1,5 +1,15 @@
 # Changelog
 
+## v1.2.0
+
+### Added or Changed
+
+- Setup landing page
+
+### Removed
+
+- Remove template readme code
+
 ## v1.1.2
 
 ### Added or Changed

@@ -1,6 +1,6 @@
 {
   "name": "directus-next-tailwind",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "private": true,
   "description": "A Directus / Next.js / Tailwind starter",
   "repository": "https://github.com/Calderis/Directus-Next-Starter",
