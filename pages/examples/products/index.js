@@ -23,7 +23,7 @@ export default function Page ({ app, products }) {
                 <a key={product.id} className="group relative">
                   <div className="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
                     <img
-                      src={`${app.url}/assets/${product.thumbnail}`}
+                      src={`${app.apiUrl}/assets/${product.thumbnail}`}
                       alt={product.name}
                       className="w-full h-full object-center object-cover lg:w-full lg:h-full"
                     />
@@ -50,7 +50,7 @@ export default function Page ({ app, products }) {
 
 // Export the `session` prop to use sessions with Server Side Rendering
 export async function getServerSideProps(context) {
-  const products = await directus.items("products").readMany({ limit: 10 });
+  const products = await directus.items("products").readByQuery({ limit: 10 });
 
   return {
     props: {

@@ -1,5 +1,18 @@
 # Changelog
 
+## v1.1.2
+
+### Added or Changed
+
+- Fix fetch users syntax
+- Fix fetch products syntax
+- Fix images assets path
+- Fix Directus settings fetch syntax
+
+### Removed
+
+- Remove custom directus Auth and custom transport
+
 ## v1.1.1
 
 ### Added or Changed
