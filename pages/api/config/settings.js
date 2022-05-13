@@ -30,10 +30,11 @@ export default async function handler(req, res) {
       color: storedSettings.project_color,
       themeColor,
       customCSS: storedSettings.custom_css,
-      url: storedSettings.project_url
+      url: storedSettings.project_url,
+      apiUrl: process.env.API_URL
     });
   } else {
-    directus.settings.readMany()
+    directus.items("directus_settings").readByQuery({ limit: 1 })
       .then(({ data }) => {
         sessionstorage.setItem("settings", JSON.stringify(data));
         serverSettings = data;
@@ -47,7 +48,8 @@ export default async function handler(req, res) {
             color: data.project_color,
             themeColor,
             customCSS: data.custom_css,
-            url: data.project_url
+            url: data.project_url,
+            apiUrl: process.env.API_URL
           });
         }
       })
