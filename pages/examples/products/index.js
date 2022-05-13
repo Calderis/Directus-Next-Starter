@@ -50,7 +50,7 @@ export default function Page ({ app, products }) {
 
 // Export the `session` prop to use sessions with Server Side Rendering
 export async function getServerSideProps(context) {
-  const products = await directus.items("products").readMany({ limit: 10 });
+  const products = await directus.items("products").readByQuery({ limit: 10 });
 
   return {
     props: {
